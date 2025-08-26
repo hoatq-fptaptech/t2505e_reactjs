@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function Catalog(props){
-    const cat = props.cat;
-    const [active,setActive] = useState("Active");
+    const cat = props.cat; // read only
+    const [active,setActive] = useState("Active"); // private state
     const [color,setColor] = useState("");
     const disable = ()=>{ // arrow function
         setActive("Deactive");// hiểu: active = "Deactive";
