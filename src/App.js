@@ -2,6 +2,7 @@ import { Routes,Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Cart from "./pages/Cart";
+import Forecast from "./pages/Forecast";
 
 function App() {
   
@@ -17,6 +18,9 @@ function App() {
           <li>
             <Link to="/cart">Cart</Link>
           </li>
+          <li>
+            <Link to="/forecast">Forecast</Link>
+          </li>
        </ul>
        <main>
         <div className="container">
@@ -24,6 +28,7 @@ function App() {
                 <Route path="/" Component={Home} />
                 <Route path="/category" Component={Category} />
                 <Route path="/cart" Component={Cart} />
+                <Route path="/forecast" Component={Forecast} />
             </Routes>
         </div>
        </main>
