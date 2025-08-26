@@ -9,15 +9,23 @@ function Home(){
         wind: {speed:0},
         weather: [{description:"",icon:"01d"}]
     });
-    const changeCity = ()=>{
-        setCity("HCM");
-    }
-    const setHN = ()=>{
-        setCity("Hanoi");
-    }
+    // const changeCity = ()=>{
+    //     setCity("saigon");
+    // }
+    // const changeLondon = ()=>{
+    //     setCity("london");
+    // }
+
+    // const changeTokyo = ()=>{
+    //     setCity("tokyo");
+    // }
+    // const setHN = ()=>{
+    //     setCity("Hanoi");
+    // }
     useEffect(()=>{
         // sẽ chạy sau khi có sự thay đổi của state city
         console.log("Thành phố thay đổi: ",city);
+        getWeather();
     },[city]); // gọi lại hàm mỗi khi city thay đổi => đây là 1 hàm lắng nghe (listener) sự thay đổi của state city
 
     // call api
@@ -52,8 +60,10 @@ function Home(){
             <h2>Gió: {weather.wind.speed} km/h</h2>
             <h2>Trạng thái: {weather.weather[0].description}</h2>
             <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="sunny"/>
-            <Button onClick={changeCity} variant="primary">HCM</Button>
-            <Button onClick={setHN} variant="primary">HN</Button>
+            <Button onClick={()=>setCity("saigon")} variant="primary">HCM</Button>
+            <Button onClick={()=>setCity("london")} variant="primary">London</Button>
+            <Button onClick={()=>setCity("tokyo")} variant="primary">Tokyo</Button>
+            <Button onClick={()=>setCity("hanoi")} variant="primary">HN</Button>
         </div>
     )
 };
