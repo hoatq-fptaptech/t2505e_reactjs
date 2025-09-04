@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Category(){
     const {slug} = useParams();
@@ -26,7 +26,11 @@ function Category(){
                                     <Card>
                                         <Card.Img src={e.thumbnail}/>
                                         <Card.Body>
-                                            <Card.Title>{e.title}</Card.Title>
+                                            <Card.Title>
+                                                <Link to={"/product/"+e.id}>
+                                                    {e.title}
+                                                </Link>
+                                            </Card.Title>
                                             <Card.Text>${e.price}</Card.Text>
                                         </Card.Body>
                                     </Card>

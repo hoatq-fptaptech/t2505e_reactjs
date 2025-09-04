@@ -15,6 +15,7 @@ function App() {
             <Routes>
                 <Route path="/" Component={Home} />
                 <Route path="/category/:slug" Component={Category} />
+                <Route path="/product/:id" Component={Category} />
                 <Route path="/cart" Component={Cart} />
                 <Route path="/forecast" Component={Forecast} />
             </Routes>
