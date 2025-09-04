@@ -14,7 +14,7 @@ function App() {
         <div className="container">
             <Routes>
                 <Route path="/" Component={Home} />
-                <Route path="/category" Component={Category} />
+                <Route path="/category/:slug" Component={Category} />
                 <Route path="/cart" Component={Cart} />
                 <Route path="/forecast" Component={Forecast} />
             </Routes>
