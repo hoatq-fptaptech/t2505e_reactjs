@@ -3,25 +3,13 @@ import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Cart from "./pages/Cart";
 import Forecast from "./pages/Forecast";
+import NavComponent from "./components/NavComponent";
 
 function App() {
   
   return (
     <div className="App">
-       <ul>
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link to="/category">Category</Link>
-          </li>
-          <li>
-            <Link to="/cart">Cart</Link>
-          </li>
-          <li>
-            <Link to="/forecast">Forecast</Link>
-          </li>
-       </ul>
+       <NavComponent />
        <main>
         <div className="container">
             <Routes>
