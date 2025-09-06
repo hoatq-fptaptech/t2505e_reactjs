@@ -1,0 +1,37 @@
+import { useContext, useEffect, useState } from "react";
+import { Button, Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import GlobalContext from "../context/context";
+
+function Product(){
+    const {data,setData} = useContext(GlobalContext);
+    const [product,setProduct] = useState({});
+
+    const {id} = useParams();
+    const get_product_from_api = async ()=>{
+        const url = "https://dummyjson.com/product/"+id;
+        const rs = await fetch(url);
+        const data = await rs.json();
+        setProduct(data);
+    }
+    useEffect(()=>{
+        get_product_from_api();
+    },[id]);
+    const addToCart = ()=>{
+       const cart = data.cart;
+       cart.push(product);
+    //    data.cart = cart;
+    //    setData(data);
+       setData({...data,cart:cart});
+    }
+
+    return (
+        <Container>
+            <h1>{product.title}</h1>
+            <img src={product.thumbnail} width={500}/>
+            <p>{product.price}</p>
+            <Button onClick={addToCart} variant="primary">Add to cart</Button>
+        </Container>
+    );
+}
+export default Product;

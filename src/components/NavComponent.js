@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import GlobalContext from "../context/context";
 const NavComponent = ()=>{
+  const {data,setData} = useContext(GlobalContext);
   const [categories,setCategories] = useState([]);
   const getCategories = async ()=>{
     const url = "https://dummyjson.com/product/categories";
@@ -25,7 +26,7 @@ const NavComponent = ()=>{
           }
         
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart ({data.cart.length})</Link>
           </li>
           <li>
             <Link to="/forecast">Forecast</Link>
