@@ -19,7 +19,20 @@ function Product(){
     },[id]);
     const addToCart = ()=>{
        const cart = data.cart;
-       cart.push(product);
+       // kiểm tra sp đã có trong giỏ hàng chưa, 
+       // có rồi chỉ tăng số lượng
+       product.buy_qty = 1;
+       let check = false;
+       for(var i=0;i<cart.length;i++){
+         if(cart[i].id == product.id){
+            check = true;
+            cart[i].buy_qty = cart[i].buy_qty + 1;
+            break;
+         }
+       }
+       if(check == false){
+            cart.push(product);
+       }
     //    data.cart = cart;
     //    setData(data);
        setData({...data,cart:cart});
